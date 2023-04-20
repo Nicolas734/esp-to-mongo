@@ -1,4 +1,4 @@
-import { buscarMedidas, inserirMedida } from "../services/medidaService";
+import { buscarMedidas, inserirMedida, inserirMedidas } from "../services/medidaService";
 
 
 class MedidaController{
@@ -14,6 +14,15 @@ class MedidaController{
     public async cadastrar (req, res){
         try{
             const dados = await inserirMedida(req.body);
+            res.json(dados);
+        } catch (error) {
+            res.json(error)
+        }
+    }
+
+    public async insertMany (req, res){
+        try{
+            const dados = await inserirMedidas(req.body);
             res.json(dados);
         } catch (error) {
             res.json(error)

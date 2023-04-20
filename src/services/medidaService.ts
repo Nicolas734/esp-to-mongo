@@ -11,6 +11,16 @@ const inserirMedida = async (medida) => {
     }
 }
 
+const inserirMedidas = async (medidas) => {
+    try{
+        const result = await medidaCollection.insertMany(medidas);
+        return result.ops;
+    }catch(error){
+        console.log(error);
+        throw error;
+    }
+}
+
 
 const buscarMedidas = async ()  => {
     try{
@@ -22,4 +32,4 @@ const buscarMedidas = async ()  => {
     }
 }
 
-export { buscarMedidas, inserirMedida };
+export { buscarMedidas, inserirMedida, inserirMedidas };

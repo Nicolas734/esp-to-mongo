@@ -9,5 +9,6 @@ const routes = Router();
 
 routes.get('/buscar', MedidaController.buscar);
 routes.post('/cadastrar', MedidaController.cadastrar);
+routes.post('/cadastrar-multiplos', MedidaController.insertMany);
 
 export default routes;
