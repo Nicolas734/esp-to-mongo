@@ -50,11 +50,19 @@ const cadastrarMultiplo = async (req, res) => {
     }
 }
 
+const excluirTodos = async (req, res) => {
+    try {
+        const result = await medidaCollection.deleteMany({});
+        res.json(result);
+    } catch (error) {
+        res.json(error);
+    }
+}
 
 app.get('/buscar', buscar);
 app.post('/cadastrar', cadastrar);
 app.post('/cadastrar-multiplos', cadastrarMultiplo);
-
+app.delete('/excluir-todos', excluirTodos)
 
 
 
