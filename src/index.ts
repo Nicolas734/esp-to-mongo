@@ -32,7 +32,7 @@ const cadastrar = async (req, res) => {
     try{
         const dados = req.body;
         const result = await medidaCollection.insertOne(dados);
-        res.json(result);
+        res.json(result.ops);
     } catch (error) {
         console.log(error)
         res.json(error)
