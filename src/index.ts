@@ -32,7 +32,7 @@ const cadastrar = async (req, res) => {
     try{
         const dados = req.body;
         const result = await medidaCollection.insertOne(dados);
-        res.json(result);
+        res.json(result.ops);
     } catch (error) {
         console.log(error)
         res.json(error)
@@ -50,11 +50,20 @@ const cadastrarMultiplo = async (req, res) => {
     }
 }
 
+const excluirTodos = async (req, res) => {
+    try {
+        const result = await medidaCollection.deleteMany({});
+        res.json(result);
+    } catch (error) {
+        res.json(error);
+    }
+}
 
+app.get('/', (req, res)=> res.json("is rodando...."))
 app.get('/buscar', buscar);
 app.post('/cadastrar', cadastrar);
 app.post('/cadastrar-multiplos', cadastrarMultiplo);
-
+app.delete('/excluir-todos', excluirTodos)
 
 
 
