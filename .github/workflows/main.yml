@@ -27,7 +27,7 @@ jobs:
       - name: Criar arquivo .env
         run: |
           echo "PORT=5001" >> .env
-          echo "URI=${{ secrets.MONGO_DB_URI }}" >> .env
+          echo "URI=mongodb+srv://Nicolas:NKpAgEPNEdDGuE1F@nicolas.yt3g1l9.mongodb.net/EstacaoMeteorologia?retryWrites=true&w=majority" >> .env
  
       - name: Instalar dependências Node.js
         run: npm install
@@ -39,4 +39,4 @@ jobs:
         run: sleep 10s
 
       - name: Executar pytest
-        run: pytest .\tests\
+        run: pytest tests

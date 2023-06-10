@@ -1,7 +1,7 @@
 import requests
 import json
 
-URL_BASE = "https://esp-to-mongo.vercel.app/"
+URL_BASE = "http://localhost:5001"
 
 class TestApiCrudEstacao:
 
