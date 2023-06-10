@@ -59,6 +59,7 @@ const excluirTodos = async (req, res) => {
     }
 }
 
+app.get('/', (req, res)=> res.json("is rodando...."))
 app.get('/buscar', buscar);
 app.post('/cadastrar', cadastrar);
 app.post('/cadastrar-multiplos', cadastrarMultiplo);
