@@ -1,0 +1,21 @@
+name: Deploy to Vercel
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest 
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install Vercel CLI
+        run: npm install -g vercel
+
+      - name: Deploy to Vercel
+        run: vercel --token ${{ secrets.VERCEL_TOKEN }} --confirm --prod --scope projeto-id
