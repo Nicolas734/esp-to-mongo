@@ -3,7 +3,6 @@ name: Testes automatizados
 on:
   push:
     branches:
-      - master
       - dev
 
 jobs:
